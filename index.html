@@ -197,20 +197,17 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
   fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({name:name,contact:contact,city:$('city').value.trim(),when:$('when').value,consent:true,website:''})})
   .then(function(r){return r.json()})
-  .then(function(d){
-   if(d&&d.ok===true){
-  show('ok','Спасибо! Заявка принята. Сейчас вы будете перенаправлены на страницу оплаты.');
-  $('leadForm').reset();
-  try{if(typeof ym==='function')ym(113180168,'reachGoal','lead');}catch(x){}
-  setTimeout(function(){
-    window.location.href = 'https://ae3188b0.inspectornovostroyki.pages.dev/';
-  }, 1500);
-}
-  // Переход на инструмент через 1.5 секунды, чтобы пользователь увидел сообщение
-  setTimeout(function(){
-    window.location.href = 'https://inspector.yulechka-b25.workers.dev/';
-  }, 1500);
-} else throw new Error('bad');
+   .then(function(d){
+    if(d && d.ok === true){
+      show('ok','Спасибо! Заявка принята. Сейчас вы будете перенаправлены на страницу оплаты.');
+      $('leadForm').reset();
+      try{if(typeof ym==='function')ym(113180168,'reachGoal','lead');}catch(x){}
+      setTimeout(function(){
+        window.location.href = 'https://ВАША-ССЫЛКА-НА-ОПЛАТУ';
+      }, 1500);
+    } else {
+      throw new Error('bad');
+    }
   })
   .catch(function(){show('err','Не удалось отправить заявку. Попробуйте ещё раз или напишите нам: '+CONTACT_EMAIL)})
   .then(function(){btn.disabled=false;btn.textContent='Оставить заявку'});
