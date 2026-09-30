@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(113180168, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113180168" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+  <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Инспектор новостройки — приёмка квартиры без эксперта</title>
@@ -170,6 +182,29 @@
   </div>
 </section>
 
+  <!-- Как это выглядит: скриншоты инструмента -->
+<section style="padding:80px 20px; background:#0F0F0F;">
+  <div style="max-width:1100px; margin:0 auto; text-align:center;">
+    <p style="color:#39FF88; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin:0 0 12px;">Интерфейс</p>
+    <h2 style="color:#FFFFFF; font-size:34px; line-height:1.2; margin:0 0 16px;">ТАК ВЫГЛЯДИТ ИНСТРУМЕНТ</h2>
+    <p style="color:#9AA0A6; font-size:17px; max-width:640px; margin:0 auto 48px;">То самое приложение, которое откроется у вас на телефоне после получения доступа.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; align-items:flex-start;">
+      <figure style="margin:0; flex:1 1 280px; max-width:340px;">
+        <img src="img/step-1.png" alt="Чек-лист по зонам квартиры в Инспекторе новостройки" loading="lazy" style="width:100%; border-radius:18px; border:1px solid rgba(57,255,136,0.25); box-shadow:0 12px 40px rgba(0,0,0,0.55); display:block;">
+        <figcaption style="color:#9AA0A6; font-size:15px; margin-top:16px;">Чек-лист по 6 зонам квартиры</figcaption>
+      </figure>
+      <figure style="margin:0; flex:1 1 280px; max-width:340px;">
+        <img src="img/step-2.png" alt="Отметка дефекта и прикрепление фото в Инспекторе новостройки" loading="lazy" style="width:100%; border-radius:18px; border:1px solid rgba(57,255,136,0.25); box-shadow:0 12px 40px rgba(0,0,0,0.55); display:block;">
+        <figcaption style="color:#9AA0A6; font-size:15px; margin-top:16px;">Отметка «дефект» и фото прямо в инструменте</figcaption>
+      </figure>
+      <figure style="margin:0; flex:1 1 280px; max-width:340px;">
+        <img src="img/step-3.png" alt="Готовая дефектная ведомость и претензия застройщику" loading="lazy" style="width:100%; border-radius:18px; border:1px solid rgba(57,255,136,0.25); box-shadow:0 12px 40px rgba(0,0,0,0.55); display:block;">
+        <figcaption style="color:#9AA0A6; font-size:15px; margin-top:16px;">Готовые ведомость и претензия</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <span class="kicker">Что внутри</span>
@@ -327,6 +362,15 @@
     <p style="margin-top:14px;font-size:13px">© 2026 Инспектор новостройки. <a href="#zayavka">Оставить заявку</a></p>
     <p style="margin-top:10px;font-size:12px;opacity:.7">Материал носит информационный характер и не является юридической консультацией.</p>
   </div>
+  <!-- Юридический дисклеймер -->
+<div style="background:#161616; border-top:1px solid #222; padding:32px 20px;">
+  <div style="max-width:900px; margin:0 auto; color:#7A7F85; font-size:13px; line-height:1.7;">
+    <p style="margin:0 0 10px;"><strong style="color:#9AA0A6;">Инспектор новостройки</strong> — вспомогательный цифровой инструмент для самостоятельной фиксации дефектов при приёмке квартиры. Сервис не является юридической услугой и не заменяет работу профессионального приёмщика, эксперта или юриста.</p>
+    <p style="margin:0 0 10px;">Формируемые документы (дефектная ведомость, текст претензии) носят информационный характер. Юридическую силу имеют документы, оформленные в соответствии с требованиями законодательства РФ. Ответственность за содержание и способ подачи документов несёт пользователь.</p>
+    <p style="margin:0;">Перед принятием решений о подписании акта приёма-передачи при наличии спорных или существенных дефектов рекомендуем обратиться к квалифицированному специалисту.</p>
+  </div>
+</div>
+
 </footer>
 
 <script>
@@ -370,32 +414,38 @@
         '🕒 ' + new Date().toLocaleString('ru-RU');
 
       try {
-        var res = await fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text })
-        });
-        var data = await res.json();
+       var res = await fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text })
+});
+var data = await res.json();
 
-        if (data && data.ok) {
-          msg.className = 'msg ok';
-          msg.textContent = 'Спасибо! Заявка принята. Мы свяжемся с вами в ближайшее время.';
-          msg.style.display = 'block';
-          form.reset();
-        } else {
-          throw new Error('Telegram error');
-        }
-      } catch (err) {
-        msg.className = 'msg err';
-        msg.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.';
-        msg.style.display = 'block';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Отправить заявку';
-      }
-    });
-  });
+if (data && data.ok) {
+  msg.className = 'msg ok';
+  msg.textContent = 'Спасибо! Заявка принята. Мы свяжемся с вами в ближайшее время.';
+  msg.style.display = 'block';
+
+  // ▼▼▼ ВСТАВЬТЕ ЭТУ СТРОКУ ЗДЕСЬ ▼▼▼
+  if (typeof ym === "function") ym(113180168, "reachGoal", "lead");
+  // ▲▲▲ КОНЕЦ ВСТАВКИ ▲▲▲
+
+  form.reset();
+} else {
+  throw new Error('Telegram error');
+}
+} catch (err) {
+  msg.className = 'msg err';
+  msg.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.';
+  msg.style.display = 'block';
+} finally {
+  btn.disabled = false;
+  btn.textContent = 'Отправить заявку';
+}
+});
+});
 </script>
+
 
 </body>
 </html>
